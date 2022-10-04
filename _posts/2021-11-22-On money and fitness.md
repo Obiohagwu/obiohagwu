@@ -1,8 +1,5 @@
 
----
-title: "On money and fitness"
-date: 2021-11-22
----
+
 
 ---
 Lately, I’ve been thinking about money… and fitness and how money can act as a fairly strong proxy for fitness.
