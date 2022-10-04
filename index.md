@@ -1,4 +1,4 @@
 ---
-title: Welcome to my blog
+Title: Some Thoughts ( should preface with "poorly researched")
 ---
 
