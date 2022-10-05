@@ -3,9 +3,10 @@ title: Cybercratic Imperialism
 date: 2021-12-18
 ---
 
-![image](https://user-images.githubusercontent.com/73560826/194138958-9dc46978-06e0-43de-b4fa-ffe0b4e739d3.png)
-
-
+<p align="center">
+    <img width="456" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/194138958-9dc46978-06e0-43de-b4fa-ffe0b4e739d3.png">
+ 
+    
 When one thinks of a monopoly, what set of attributes would generally come to mind? How about imperialistic [**feudalism**](https://www.google.com/search?q=feudalism&oq=feaud&aqs=chrome.1.69i57j0i10i131i433i512l2j46i10i131i433i512j0i10i131i433i512l2j0i10i512j0i10i433i512j0i10i512j0i10i433i512.4189j0j7&sourceid=chrome&ie=UTF-8)? what set of attributes and modes of operations would one confer onto these methods of socioeconomic modeling? For a time, try to envision a subsequent reality, not too distant in the future ( ~ 40-50 yrs), when a certain set of institutionalized companies, operating on the basis of resource accumulation and share price maximization, would ultimately converge unto a pocket of locality that would entail a sort of quasi-governmental structure based on a system of [**Cybercratic**](https://en.wikipedia.org/wiki/Cyberocracy) Imperialism, manifesting itself by a revival of a [**manorial**](https://en.wikipedia.org/wiki/Manorialism) ethos, whereby positions in such companies are nothing more than a euphemistic guise for indentured servitude - [**serfdoms**](https://www.britannica.com/topic/serfdom). This presupposes a massive shift or global event that would usher in newer paradigms/modes of operation on a socioeconomic level. Although this essay generally sheds light on a more pessimistic perspective of the eventual terminus of our current [**hyperconsumerist**](https://en.wikipedia.org/wiki/Hyperconsumerism)/ [**accelerationist**](https://en.wikipedia.org/wiki/Accelerationism) path for progress - progress that can manifest itself on either end of the axis of what can be deemed morally good or evil, or malignant or benevolent - I still have some hope for a less drastic outcome.
 
 ---
@@ -13,7 +14,8 @@ I must establish some parallels. In medieval times, across large numbers of peop
 
 The serfs, in this context, can be thought of as “consoomers”, operating on the basis of hyperconsumerist ethos. Consoom! consoom! consoom! until you are effectively incapable. These people have no such proximity to any ounce of power. They spend their days being, in most contexts of the word, [**wire-headed**](https://www.lesswrong.com/tag/wireheading). The reality of the material world they had ancestrally inhabited, in all its absolute rawness, has either become too much to bear or, the overlay reality in which they inhabit, which was categorically created by their cybercratic lords, is just that much better. A world where one has no responsibility, no expectations, no duty, and not a modicum of culpability given their actions. A world where one can decide to turn all their pleasure centers to overdrive and exist in a state of constant docile catatonia is a world where one becomes the *optimal sheep*.
 
-![image](https://user-images.githubusercontent.com/73560826/194139585-3ad87f83-b7d6-42ab-b72e-7243dc5e1d2e.png)
+<p align="center">
+    <img width="456" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/194139585-3ad87f83-b7d6-42ab-b72e-7243dc5e1d2e.png">
 
 
 ---
