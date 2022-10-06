@@ -7,10 +7,10 @@ The human-induced great filter. Nature’s great civilizational test. In an earl
 
 I must establish some parallels. When one speaks of Mesa optimizers and their Mesa objectives, as well as base optimizers and their base objectives, one could draw parallels between the mechanism of operation between base optimizers and stochastic gradient descent. manifested as natural selection, as well as the base objective function and relative fitness in an evolutionary context. Looking further, one could also find even more parallels between Mesa optimizers and human sociocultural values, and mesa objective functions and preservation and propagation of said sociocultural values goading to [inner alignment](https://www.lesswrong.com/posts/AHhCrJ2KpTjsCSwbt/inner-alignment-explain-like-i-m-12-edition) predilections(temperament, predisposition to violence, etc).
 
----
+
 
 <p align="center">
-    <img width="456" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/194412529-1d118b78-fee2-427f-8ddb-f68684703297.png">
+    <img width="467" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/194412529-1d118b78-fee2-427f-8ddb-f68684703297.png">
 </p>
 
 
