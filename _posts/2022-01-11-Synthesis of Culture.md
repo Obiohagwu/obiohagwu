@@ -9,7 +9,10 @@ I must establish some parallels. When one speaks of Mesa optimizers and their Me
 
 ---
 
-pic here (caption: Great-Filter circa )
+<p align="center">
+    <img width="456" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/194412529-1d118b78-fee2-427f-8ddb-f68684703297.png">
+</p>
+
 
 From the advent of society circa 10000BCE, humans, across large sets of people and cultures have had their fair share of war and religiously and culturally induced conflicts, primarily fueled by a “fight for civilization” as opposing sides were generally motivated by the preservation and propagation of their socio-cultural values on to the other side. These conflicts usually always led to the loss of life in large quantities. The motivation for such violent conquests perpetrated by humans was rooted primarily in differing cultural and religious norms - or differing mesa-optimizers, as well as phenotypic differences which are even more apparent.
 
