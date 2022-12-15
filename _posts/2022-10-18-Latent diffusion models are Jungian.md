@@ -18,4 +18,4 @@ How to:
 - etc
 
 
-From the well of volumatrically scattered bitmaps, a thing of beauty emerges. The recent rise in diffusion based models have given another
+The recent rise in diffusion based models have given another
