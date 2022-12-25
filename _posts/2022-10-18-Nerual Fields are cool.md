@@ -14,7 +14,7 @@ Now this is where it starts getting fun.
 ---
 
 We all love graphics right? good ol graphics. Where virtually every other subdiscipline must gift alms surfeit in servitude. Radiance fields in the domain of graphics are primarily used to map light scattering over a continuos space leveraging electromagnetic field properties.
-You could imagine a radiance field as a subset of an EM field. So for optimality sake, we'd like an algorithm that can efficiently map the set of input taken onto a smaller dimensional space of color pixel density distributions.
+You could imagine a radiance field as a subset of an EM field. So for optimality sake, we'd like an algorithm that can efficiently map the input set onto a smaller dimensional space of color pixel density distributions.
 
 More precisely:
 
