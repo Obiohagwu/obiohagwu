@@ -11,7 +11,7 @@ date: 2022-12-25
 
 
 *A tear is shed; beauty in all it's absolute rawness<br>
-To find surfeit, your tender embrace. Pain! that is all we feel<br>
+To find surfeit, your tender embrace. Pain! a vitriolic immanent<br>
 All we know is pain. The unending procule of eternal sunshine<br>
 A terminus, fulfilled of such wretched lamentations<br>
 Are we naive to hold such fanciful ideations? They say we are<br>
