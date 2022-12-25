@@ -2,6 +2,12 @@
 title: A Dirge for the Romantics 
 date: 2022-10-18
 ---
+> *A sultry diatribe for those of the more romantic disposition. Aesthete sensibilites can be deleterious.*
+
+<p align="center">
+    <img width="300" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/209465672-eebbe634-89ad-4121-ae84-43d65d2c0080.png">
+</p>
+
 
 
 *A tear is shed; beauty in all it's absolute rawness<br>
