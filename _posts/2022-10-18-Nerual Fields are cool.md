@@ -12,4 +12,9 @@ We all know about good old fields. Generally speaking, in physics - or in genera
 Cool examples that are intuitive are the eletromagentic field and light as a field quantity. Or the gravitational field and gravity (still pretty uunclear what do) being a quantity. So, I guess you see how we build this up now to *radiance* fields. 
 Now this is where it starts getting fun. 
 ---
-We all love graphics right? good ol graphics. Where virtually everyother subdiscipline must gift alms surfeit in servitude.
+
+We all love graphics right? good ol graphics. Where virtually every other subdiscipline must gift alms surfeit in servitude. Radiance fields in the domain of graphics are primarily used to map light scattering over a continuos space leveraging electromagnetic field properties.
+You could imagine a radiance field as a subset of an EM field. So for optimality sake, we'd like an algorithm that can efficiently map the set of input taken onto a smaller dimensional space of color pixel density distributions.
+
+More precisely:
+
