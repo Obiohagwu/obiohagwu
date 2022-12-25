@@ -1,6 +1,6 @@
 ---
 title: A Dirge for the Romantics 
-date: 2022-10-18
+date: 2022-12-25
 ---
 > *A sultry diatribe for those of the more romantic disposition. Aesthete sensibilites can be deleterious.*
 
