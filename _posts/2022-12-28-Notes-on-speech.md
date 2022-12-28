@@ -7,3 +7,4 @@ The ideal multimodal agent would integrate an audio processing system. I decided
 
 ## To begin: General raw signal transformation functions - Fourier transforms
 
+testing git
