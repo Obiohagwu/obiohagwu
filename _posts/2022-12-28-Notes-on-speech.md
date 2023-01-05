@@ -34,7 +34,7 @@ To approach this from a more information theoretic pov,
 - Do a thorough account of Vocoders (nerual vocoders). Talk about different backbones and their advantages and drawbacks
 
 #### *References*
-- *https://arxiv.org/abs/2211.01087*
-- *https://arxiv.org/abs/2203.16749*
-- *https://nonint.com/2022/04/25/tortoise-architectural-design-doc/*
-- *https://course.ece.cmu.edu/~ece491/lectures/L25/STFT_Notes_ADSP.pdf*
+- *[DSPGAN: a GAN-based universal vocoder for high-fidelity TTS by time-frequency domain supervision from DSP](https://arxiv.org/abs/2211.01087)*
+- *[SpecGrad: Diffusion Probabilistic Model based Neural Vocoder with Adaptive Noise Spectral Shaping](https://arxiv.org/abs/2203.16749)*
+- *[TorToiSe Architectural Design Doc](https://nonint.com/2022/04/25/tortoise-architectural-design-doc/)*
+- *[CMU - Notes on Short-Time Fourier Transforms](https://course.ece.cmu.edu/~ece491/lectures/L25/STFT_Notes_ADSP.pdf)*
