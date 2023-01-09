@@ -40,10 +40,9 @@ Canonically, the DFTF of a raw input signal undergoes two intermediary transform
 
 We denote the DTFT of an input sequence, X[n] to be:
 
-
-
-
-
+<p align="center">
+    <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/211385211-24230aff-d956-41f2-bac1-fedabaaeec62.svg">
+</p>
 
 
 
