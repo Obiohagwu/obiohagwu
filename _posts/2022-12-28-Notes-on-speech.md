@@ -5,6 +5,7 @@ date: 2022-12-28
 
 The ideal multimodal agent would integrate an audio processing system. I decided to share some notes on speech,starting from a signal procesing perspective. 
 
+**NOTE: This is a very high-level overview. Will use minial math notation.**
 
 - Talk about how to sample a wave form, period, sampling frequency, and FFTs etc. 
 
@@ -32,6 +33,12 @@ More formally:
 
 let the raw input signal be defined as X(t), where t is the time variable. Using the sampling criterion, we collect n samples from X(t) at a rate of Fs per second. The output of this gives us our number of sampled points (which, again is quite heavily dependent on the sampling frequency used. Will talk more about this as we proceed).
 Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain the discretized version X[n], were n is the number of samples, of the inital continous raw input. Finally, with this discretized version of the inital input, we can work our digital magic on it!
+
+Ok, now we can get inrto the meat of things. We've now seen how to convert a raw continous input signal into a discretized version for better computation over a digital substrate, now we look at the algorithms that actually allow us to process X[n]. In the space of dicrete signal processing - or more specifically, Fourier analysis on discrete-time signals, we have these fourier transforms called DFT (Discrete Fourier Transform), and DTFT (Discrete Time Fourier Transform).
+
+Canonically, the DFTF of a raw input signal undergoes two intermediary transformation before DFT being computed. 
+
+We denote the DTFT of an input sequence, X[n] to be:
 
 
 
