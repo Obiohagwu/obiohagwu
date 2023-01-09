@@ -28,8 +28,10 @@ To approach this from a more information theoretic persperctive, we call upon th
 To return to more applicable means. In the feild of signal processing, primarily, digital signal processing, a common and somewhat indispensable method is that of signal transformation between different domains (ie, frequency, time, amplitude, etc). Generally speaking, input signals of any form are usually exist in a continious form, meaning that in order to use such an input signal at any capacity, we would have to initally convert it into a dicsrete repesenatation. This is where sampling a continous signal somes into play!
 
 We all know what sampling is. Sweet sweet sampling. I'm sorry, I just really love any sort of sparsification or compression type derivative. In this case, given the set of all points in the continous input signal, we discriminately select samples of the set by a sampling criterion denoted by 1/Fs (period), where Fs is the sampling frequency.
-Formally: 
+More formally: 
 
+let the raw input signal be defined as X(t), where t is the time variable. Using the sampling criterion, we collect n samples from X(t) at a rate of Fs per second. The output of this gives us our number of sampled points (which, again is quite heavily dependent on the sampling frequency used. Will talk more about this as we proceed).
+Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain the discretized version X[n], were n is the number of samples, of the inital continous raw input. Finally, with this discretized version of the inital input, we can work our digital magic on it!
 
 
 
