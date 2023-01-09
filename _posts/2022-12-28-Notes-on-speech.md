@@ -44,7 +44,7 @@ We denote the DTFT of an input sequence, X[n] to be:
     <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/211385211-24230aff-d956-41f2-bac1-fedabaaeec62.svg">
 </p>
 
-where ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) denotes 
+where ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) denotes the raw input signal as a continous function of omega. So as we saw above, we have to sample points on ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) based on the sampling criteria wee defined above, 1/Fs. Recall that we do such a samplig to discretice inital signal. Note that sampling of raw signal occurs in frequency domain.
 
 
 
