@@ -3,6 +3,8 @@ title: Notes on speech from signal processing perspective
 date: 2022-12-28
 ---
 
+**DRAFT: This post is a work in progress. Not finished yet.**
+
 The ideal multimodal agent would integrate an audio processing system. I decided to share some notes on speech,starting from a signal procesing perspective. 
 
 **NOTE: This is a very high-level overview. Will use minial math notation.**
@@ -36,7 +38,7 @@ Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain 
 
 Ok, now we can get inrto the meat of things. We've now seen how to convert a raw continous input signal into a discretized version for better computation over a digital substrate, now we look at the algorithms that actually allow us to process X[n]. In the space of dicrete signal processing - or more specifically, Fourier analysis on discrete-time signals, we have these fourier transforms called DFT (Discrete Fourier Transform), and DTFT (Discrete Time Fourier Transform).
 
-Canonically, the DFTF of a raw input signal undergoes two intermediary transformation before DFT being computed. 
+Canonically, the DTFT of a raw input signal undergoes two intermediary transformation before DFT being computed. 
 
 We denote the DTFT of an input sequence, X[n] to be:
 
@@ -44,8 +46,8 @@ We denote the DTFT of an input sequence, X[n] to be:
     <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/211385211-24230aff-d956-41f2-bac1-fedabaaeec62.svg">
 </p>
 
-where ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) denotes the raw input signal as a continous function of omega. So as we saw above, we have to sample points on ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) based on the sampling criteria we defined above, 1/Fs. Recall that we do such a sampling to discretize inital signal. *Note that sampling of raw signal occurs in frequency domain.*
-Upon 
+where ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) denotes the raw input signal as a continous function of omega. So as we saw above, we have to sample points on ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) based on the sampling criteria we defined above, 1/Fs. Recall that we do such a sampling to discretize the inital raw input signal. *Note that sampling of raw signal occurs in frequency domain.*
+Upon application of DTFT algorithm, we
 
 
 
@@ -71,3 +73,6 @@ Upon
 - *[SpecGrad: Diffusion Probabilistic Model based Neural Vocoder with Adaptive Noise Spectral Shaping](https://arxiv.org/abs/2203.16749)*
 - *[TorToiSe Architectural Design Doc](https://nonint.com/2022/04/25/tortoise-architectural-design-doc/)*
 - *[CMU - Notes on Short-Time Fourier Transforms](https://course.ece.cmu.edu/~ece491/lectures/L25/STFT_Notes_ADSP.pdf)*
+- *[Wikipedia - Discrete Fourier Transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)*
+- *[Wikipedia = Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform)*
+
