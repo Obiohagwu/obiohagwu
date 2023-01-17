@@ -36,7 +36,14 @@ More formally:
 let the raw input signal be defined as X(t), where t is the time variable. Using the sampling criterion, we collect n samples from X(t) at a rate of Fs per second. The output of this gives us our number of sampled points (which, again is quite heavily dependent on the sampling frequency used. Will talk more about this as we proceed).
 Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain the discretized version X[n], were n is the number of samples, of the inital continous raw input. Finally, with this discretized version of the inital input, we can work our digital magic on it!
 
-*Illustration:* 
+*Illustration:* <br>
+<p align="center">
+    <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/213008060-94492b53-e8c4-4f5e-a643-bc3e162d7bdb.png"
+</p>
+
+The process illustrated above is conducted by any general analog-ti-digital conversion system. Just sample points with a sample rate criterion, measured in KHz, then we get the discretized version that we can actually run computations on.<br>
+
+**Note:** For the purpose of running computations on human audio, we generally, as a rule of thumb, use a sampling rate of aobut 16000KHz.
 
 Ok, now we can get inrto the meat of things. We've now seen how to convert a raw continous input signal into a discretized version for better computation over a digital substrate, now we look at the algorithms that actually allow us to process X[n]. In the space of dicrete signal processing - or more specifically, Fourier analysis on discrete-time signals, we have these fourier transforms called DFT (Discrete Fourier Transform), and DTFT (Discrete Time Fourier Transform).
 
