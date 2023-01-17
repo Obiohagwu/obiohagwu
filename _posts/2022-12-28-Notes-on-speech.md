@@ -28,7 +28,7 @@ To approach this from a more information theoretic persperctive, we call upon th
 
 > Figure 1. A Canonical information propagation system as denoted by Shannon & Weaver in "The mathematical theory of communication"
 
-To return to more applicable means. In the feild of signal processing, primarily, digital signal processing, a common and somewhat indispensable method is that of signal transformation between different domains (ie, frequency, time, amplitude, etc). Generally speaking, input signals of any form are usually exist in a continious form, meaning that in order to use such an input signal at any capacity, we would have to initally convert it into a dicsrete repesenatation. This is where sampling a continous signal somes into play!
+To return to more applicable means. In the field of signal processing, primarily, digital signal processing, a common and somewhat indispensable method is that of signal transformation between different domains (ie, frequency, time, amplitude, etc). Generally speaking, input signals of any form are usually exist in a continious form, meaning that in order to use such an input signal at any capacity, we would have to initally convert it into a dicsrete repesenatation. This is where sampling a continous signal somes into play!
 
 We all know what sampling is. Sweet sweet sampling. I'm sorry, I just really love any sort of sparsification or compression type derivative. In this case, given the set of all points in the continous input signal, we discriminately select samples of the set by a sampling criterion denoted by 1/Fs (period), where Fs is the sampling frequency.
 More formally: 
