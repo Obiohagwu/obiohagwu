@@ -38,7 +38,7 @@ Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain 
 
 *Illustration:* <br>
 <p align="center">
-    <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/213008060-94492b53-e8c4-4f5e-a643-bc3e162d7bdb.png"
+    <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="image.png"
 </p>
 
 The process illustrated above is conducted by any general analog-ti-digital conversion system. Just sample points with a sample rate criterion, measured in KHz, then we get the discretized version that we can actually run computations on.<br>
