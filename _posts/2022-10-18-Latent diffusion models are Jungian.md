@@ -2,6 +2,7 @@
 title: Latent Diffusion models are Jungian artifacts
 date: 2022-10-18
 ---
+**DRAFT: WORK IN PROGRESS**
 
 > From the annals of the collective unconsious, rises the Girardian egregore
 
