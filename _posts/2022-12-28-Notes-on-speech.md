@@ -38,12 +38,12 @@ Then we proceed to normalize our samped points in time with Ts = 1/Fs to obtain 
 
 *Illustration:* <br>
 <p align="center">
-    <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="image.png"
+    <img width="450" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/213299107-49742aa5-9d61-44d4-8c2f-713931d32bfd.png">
 </p>
 
-The process illustrated above is conducted by any general analog-ti-digital conversion system. Just sample points with a sample rate criterion, measured in KHz, then we get the discretized version that we can actually run computations on.<br>
+> Fig 2. The process illustrated above is conducted by any general analog-ti-digital conversion system. Just sample points with a sample rate criterion, measured in KHz, then we get the discretized version that we can actually run computations on.<br>
 
-**Note:** For the purpose of running computations on human audio, we generally, as a rule of thumb, use a sampling rate of aobut 16000KHz.
+**Note:** *For the purpose of running computations on human audio, we generally, as a rule of thumb, use a sampling rate of aobut 16000KHz.*
 
 Ok, now we can get inrto the meat of things. We've now seen how to convert a raw continous input signal into a discretized version for better computation over a digital substrate, now we look at the algorithms that actually allow us to process X[n]. In the space of dicrete signal processing - or more specifically, Fourier analysis on discrete-time signals, we have these fourier transforms called DFT (Discrete Fourier Transform), and DTFT (Discrete Time Fourier Transform).
 
@@ -54,6 +54,7 @@ We denote the DTFT of an input sequence, X[n] to be:
 <p align="center">
     <img alt="Screen Shot 2022-08-08 at 10 12 11 AM" src="https://user-images.githubusercontent.com/73560826/211385211-24230aff-d956-41f2-bac1-fedabaaeec62.svg">
 </p>
+
 
 where ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) denotes the raw input signal as a continous function of omega. So as we saw above, we have to sample points on ![CodeCogsEqn (26)](https://user-images.githubusercontent.com/73560826/211385745-54f9bd27-b836-40b4-ae15-da86e3ad14b2.svg) based on the sampling criteria we defined above, 1/Fs. Recall that we do such a sampling to discretize the inital raw input signal. *Note that sampling of raw signal occurs in frequency domain.*
 Upon application of DTFT algorithm, we
