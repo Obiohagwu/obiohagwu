@@ -49,7 +49,7 @@ In multiple ways, the open-source text-to-speech system,
 AudioDiffusion is similar in architectural design to TortoiseTTS, the primary caveat though is in the diffusionbased upsampler applied to the waveform, as well as the
 UNet-based vocoder for decoding mel-spectrograms into highfidelity music output [4].
 Now, we arrive at the final sort of text-to-speech architecture
-- the Large language model(LLM) based systems. These are
+; the Large language model(LLM) based systems. These are
 the latest architectural paradigm being explored as viable
 methods for high-fidelity speech production given minimal
 input examples (few/zero-shot systems). The main caveat with
