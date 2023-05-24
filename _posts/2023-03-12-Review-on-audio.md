@@ -100,8 +100,9 @@ CLVP, CVVP, and diffusion decoder components all work
 together seamlessly as subnetworks or cascaded networks
 to create a highly effective and efficient speech synthesis
 pipeline.
+---
 
-### Cascaded text-to-music(TTM) systems for zero-shot TTA
+#### Cascaded text-to-music(TTM) systems for zero-shot TTA
 
 This section focuses on the underlying mechanism of Audio
 Diffusion based systems. Text-to-audio (TTA) systems are a
@@ -134,8 +135,9 @@ manipulations in a zero-shot fashion makes it a highly versatile
 tool that could be used in various applications, such as virtual
 assistants, audiobook production, and speech therapy, among
 others.
+---
 
-### LLM based systems
+#### LLM based systems
 
 For this section on language model-based zero-shot text-tospeech system, we will use as our case of study, VALL-E, a
 zero-shot high-fidelity text-to-speech system that is predicated
