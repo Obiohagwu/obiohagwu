@@ -14,7 +14,7 @@ So I decided to go with the RTX 3090s as the base GPUs. My primary heuristic for
 Depending on your needs, you'd want either a server set-up or a workstation setup. Usually, servers are set-ups are ideal for >=4GPUs. 
 
 
-**Workstation:**
+
 Workstations are ideal for a smaller number of computers with less heating requirements. For such systems, an AMD threadripper CPU is good. As opposed to the EPYC line with higher bandwith interconnects and higher core/thread count, the threadripper is generally lower and this doesn't necessarily negate performance for most users, but in our case it might. Althoug, if your'e only runing on <3GPUs you don't need much core/thread count. 
 
 The threadripper series also has lower RAM capacity at 128GB, as opposed to EPYC 7002/7001 series (7502 in my case).
@@ -22,7 +22,7 @@ The threadripper series also has lower RAM capacity at 128GB, as opposed to EPYC
 Given that I am planning to build-up a server cluster, I will have to go with a server CPU, and accompanying motherboard. Given that I chose the 7502 cpu, I will have to go with a rack/server cpu. The best I have seen from multiple sources is the ASRock rack ROMED8-2T board.
 
 
-**Server:**
+
 Given that I am planning to build-up a server cluster, I will have to go with a server CPU, and accompanying motherboard. Given that I chose the 7502 cpu, I will have to go with a rack/server cpu. The best I have seen from multiple sources is the ASRock rack ROMED8-2T board.
 
 
