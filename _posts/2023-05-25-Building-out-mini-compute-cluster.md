@@ -23,9 +23,13 @@ Given that I am planning to build-up a server cluster, I will have to go with a 
 
 
 **Server:**
-Servers are decent in my experience for,
+Given that I am planning to build-up a server cluster, I will have to go with a server CPU, and accompanying motherboard. Given that I chose the 7502 cpu, I will have to go with a rack/server cpu. The best I have seen from multiple sources is the ASRock rack ROMED8-2T board.
+
 
 
 **Breakdown**
 - 4x Nvidia RTX 3090 
-- Motherboard: 
+- Motherboard: ASRock rack ROMED8-2T
+- CPU: AMD EPYC 7502 (node unlocked version)
+- Power Supply Unit (PSU): 1600W Corsair
+- RAM/Memory: 128GB Samsun RAM sticks
