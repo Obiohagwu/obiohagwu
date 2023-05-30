@@ -19,12 +19,11 @@ Workstations are ideal for a smaller number of computers with less heating requi
 
 The threadripper series also has lower RAM capacity at 128GB, as opposed to EPYC 7002/7001 series (7502 in my case).
 
-Given that I am planning to build-up a server cluster, I will have to go with a server CPU, and accompanying motherboard. Given that I chose the 7502 cpu, I will have to go with a rack/server cpu. The best I have seen from multiple sources is the ASRock rack ROMED8-2T board.
 
 
 
 Given that I am planning to build-up a server cluster, I will have to go with a server CPU, and accompanying motherboard. Given that I chose the 7502 cpu, I will have to go with a rack/server cpu. The best I have seen from multiple sources is the ASRock rack ROMED8-2T board. Kudos to jbetker for being the primary inspiration behind the build. His blog is generally informative for anyone interested in deep learning engineering research.
-Anyways, given that I plan to get the server to at 4GPs eventually, (8-peak), a server sertup that provided a motherboard with multiple (>6 x16 PCIe ports). ROMED8-2T supports 7 16x PCIe. I also needed a mother
+Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a server sertup that provided a motherboard with multiple (>6 x16 PCIe ports). ROMED8-2T supports 7 16x PCIe. I also needed a mother
 
 
 
