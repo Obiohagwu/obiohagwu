@@ -29,7 +29,8 @@ Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a
 
 **Breakdown**
 - 4x Nvidia RTX 3090 
-- Motherboard: ASRock rack ROMED8-2T OR Supermicro H11SSL-i
-- CPU: AMD EPYC 7502 2.5GHz 32 core, 64 threads on 7nm (node unlocked version)
+- Motherboard: ASRock rack ROMED8-2T OR Supermicro H11SSL-i [decicded on the Supermicro board)]
+- CPU: AMD EPYC 72612 2.1GHz 16 cores, 32 threads on 7nm (node unlocked version)
 - Power Supply Unit (PSU): 1600W Corsair
-- RAM/Memory: 128GB Samsun RAM sticks
+- RAM/Memory: micron 2133p DDR4 128GB + 1TB Samsung Evo internal SSD
+-
