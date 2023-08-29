@@ -39,11 +39,6 @@ Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a
 So, I decided on the Supermicro H11SSL-1 motherboard for a wide range of reasons. First off, the price point of these from 2nd hand sellers from deprecated Shenzhen datacenters is quite literally unbeatable.
 I was able to pick this up, along with the AMD EPYC CPU for $ 320 USD.
 
-Here is an accompanying photo: 
-
-![Supermicro board](https://user-images.githubusercontent.com/73560826/11c2a15b-8bc2-4bb1-9850-8624311b6217.png)
-
-
 This motherboard comes with: 
 -  3 PCI-E 3.0 x16
 - 3 PCI-E 3.0 x8
