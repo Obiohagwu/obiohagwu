@@ -35,7 +35,7 @@ Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a
 - RAM/Memory: micron 2133p DDR4 128GB + 1TB Samsung Evo Internal SSD
 
 
-**Motherboard**
+**Motherboard**:
 So, I decided on the Supermicro H11SSL-1 motherboard for a wide range of reasons. First off, the price point of these from 2nd hand sellers from deprecated Shenzhen datacenters is quite literally unbeatable.
 I was able to pick this up, along with the AMD EPYC CPU for $ 320 USD.
 
@@ -48,8 +48,17 @@ This motherboard comes with:
 - Up to 4 USB 2.0 ports (2 rear + 2 via header)
 
 
+**CPU**:
+For, the CPU, my selection heuristc was constrained by price, compatibilty and compute power per dollar per watt. Without going on too long of a rant about this, I went with the AMD EPYC 7401. This CPU is not necessarily ideal, but it gets the job done.
 
-
+It supports:
+- PCIe 3.0 x128
+- System Memory Type DDR4
+- Memory Channels - 8
+- memory bandwith - 2400MT/s / 2666MT/s
+- per socket memory bandwith - 153.6 GB/s / 170.6 GB/s
+- 24 cores with 48 threads
+- Base clock speed of 2.0GHz with Max clock speed of 3.0GHz
 
 
 
