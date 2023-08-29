@@ -29,26 +29,25 @@ Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a
 
 **Breakdown**
 - 4x Nvidia RTX 3090 
-- Motherboard:Supermicro H11SSL-i [decicded on the Supermicro board)]
+- Motherboard: Supermicro H11SSL-i [decicded on the Supermicro board)]
 - CPU: AMD EPYC 7401 2.0GHz 24 cores, 48 threads on 7nm (node unlocked version)
 - Power Supply Unit (PSU): 1600W Corsair
-- RAM/Memory: micron 2133p DDR4 128GB + 1TB Samsung Evo internal SSD
+- RAM/Memory: micron 2133p DDR4 128GB + 1TB Samsung Evo Internal SSD
 
 
 **Motherboard**
-So, I decided on the Supermicro H11SSL-1 motherboard for a wide range of reasons. First off, the price point of these from 2nd hand sellers from deprecated Shenzhen datacenters are quite literally unbeatable.
-I was able to pick this up, along with the AMD EPYC cpu for $320USD.
+So, I decided on the Supermicro H11SSL-1 motherboard for a wide range of reasons. First off, the price point of these from 2nd hand sellers from deprecated Shenzhen datacenters is quite literally unbeatable.
+I was able to pick this up, along with the AMD EPYC CPU for $ 320 USD.
 
 Here is an accompanying photo: 
 
-<p align="center">
-    <img width="467" alt="Screen Shot 2022-08-08 at 10 12 11 AM" src=https://github.com/Obiohagwu/obiohagwu/assets/73560826/b4c9a4df-cd8f-4971-8bbd-7f4821212788.png">
-</p>
+![IMG_4667](https://github.com/Obiohagwu/obiohagwu/assets/73560826/11c2a15b-8bc2-4bb1-9850-8624311b6217)
+
 
 This motherboard comes with: 
 -  3 PCI-E 3.0 x16
 - 3 PCI-E 3.0 x8
-- M.2 interface: 1 PCI-E 3.0 x4 for an internal SSD (samsung evo 870)
+- M.2 interface: 1 PCI-E 3.0 x4 for an internal SSD (Samsung Evo 870)
 - up to 1TB Registered ECC DDR4 2666MHz SDRAM in 8 DIMMs
 - Up to 5 USB 3.0 ports (2 rear + 2 via header + 1 Type A)
 - Up to 4 USB 2.0 ports (2 rear + 2 via header)
