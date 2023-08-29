@@ -43,6 +43,13 @@ Here is an accompanying photo:
 
 ![IMG_4667](https://github.com/Obiohagwu/obiohagwu/assets/73560826/b4c9a4df-cd8f-4971-8bbd-7f4821212788)
 
+This motherboard comes with: 
+-  3 PCI-E 3.0 x16
+- 3 PCI-E 3.0 x8
+- M.2 interface: 1 PCI-E 3.0 x4 for an internal SSD (samsung evo 870)
+- up to 1TB Registered ECC DDR4 2666MHz SDRAM in 8 DIMMs
+- Up to 5 USB 3.0 ports (2 rear + 2 via header + 1 Type A)
+- Up to 4 USB 2.0 ports (2 rear + 2 via header)
 
 
 
