@@ -41,6 +41,9 @@ I was able to pick this up, along with the AMD EPYC cpu for $320USD.
 
 Here is an accompanying photo: 
 
+![IMG_4667](https://github.com/Obiohagwu/obiohagwu/assets/73560826/b4c9a4df-cd8f-4971-8bbd-7f4821212788)
+
+
 
 
 
