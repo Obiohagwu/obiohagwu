@@ -29,8 +29,19 @@ Anyways, given that I plan to get the server to at 4GPUs eventually, (8-peak), a
 
 **Breakdown**
 - 4x Nvidia RTX 3090 
-- Motherboard: ASRock rack ROMED8-2T OR Supermicro H11SSL-i [decicded on the Supermicro board)]
-- CPU: AMD EPYC 72612 2.1GHz 16 cores, 32 threads on 7nm (node unlocked version)
+- Motherboard:Supermicro H11SSL-i [decicded on the Supermicro board)]
+- CPU: AMD EPYC 7401 2.0GHz 24 cores, 48 threads on 7nm (node unlocked version)
 - Power Supply Unit (PSU): 1600W Corsair
 - RAM/Memory: micron 2133p DDR4 128GB + 1TB Samsung Evo internal SSD
--
+
+
+**Motherboard**
+So, I decided on the Supermicro H11SSL-1 motherboard for a wide range of reasons. First off, the price point of these from 2nd hand sellers from deprecated Shenzhen datacenters are quite literally unbeatable.
+I was able to pick this up, along with the AMD EPYC cpu for $320USD.
+
+Here is an accompanying photo: 
+
+
+
+
+
