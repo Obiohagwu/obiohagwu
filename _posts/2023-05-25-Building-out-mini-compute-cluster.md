@@ -41,7 +41,7 @@ I was able to pick this up, along with the AMD EPYC CPU for $ 320 USD.
 
 Here is an accompanying photo: 
 
-![IMG_4667](https://github.com/Obiohagwu/obiohagwu/assets/73560826/11c2a15b-8bc2-4bb1-9850-8624311b6217)
+![Supermicro board](https://github.com/Obiohagwu/obiohagwu/assets/73560826/11c2a15b-8bc2-4bb1-9850-8624311b6217)
 
 
 This motherboard comes with: 
