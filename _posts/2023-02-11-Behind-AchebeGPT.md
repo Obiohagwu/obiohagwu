@@ -18,3 +18,5 @@ For blog post, we will explore a limited scope of LMs from N-gram based models t
 - Brush up on N-gram based models, RNNs, then Attention based model
 - Expand on the Fine-tuning on achebe openwebtext dataset
 - Pre-training requirements (hardware & time)
+
+

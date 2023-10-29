@@ -61,4 +61,9 @@ It supports:
 - Base clock speed of 2.0GHz with Max clock speed of 3.0GHz
 
 
+**Operating System**
+For this, I just went with Ubuntu Server 22.04 LTS. No particular reason. It just has what I need. 
+
+
+
 
