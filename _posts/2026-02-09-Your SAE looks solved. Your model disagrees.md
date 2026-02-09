@@ -33,7 +33,7 @@ table {
 
 This is a research log with a small argument:
 
-1. If you're using SAEs as interpretability tools or safety monitors, **reconstruction fidelity alone is not a reliable acceptance test** — behavioral metrics like patched CE loss or ablation-normalized CE recovery should be primary.
+1. If you're using SAEs as interpretability tools or safety monitors, **reconstruction fidelity alone is not a reliable acceptance test**; Behaviour metrics like patched CE loss or ablation-normalized CE recovery should be primary.
 2. In one common regime (mid-layer residual stream), $$R^2$$ can be **systematically inflated across scale at fixed sparsity**, due to a concrete mechanism (activation variance scaling), while behavioral preservation gets worse.
 
 This is not a scaling-law fit and not evidence for a hard interpretability ceiling (yet).
