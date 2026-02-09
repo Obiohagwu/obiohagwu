@@ -1,7 +1,4 @@
 -----
-kramdown:
-math_engine: mathjax
-
 <script>
 MathJax = {
   tex: {
@@ -313,7 +310,7 @@ If you already believe “reconstruction isn’t behavior,” you may find this 
 
 -----
 
-## Next Steps (High Leverage)
+## For next Steps:
 
 1. **Bridge model at all depths:** add Pythia-160M at early/mid/late to get three-point depth-resolved comparisons.
 1. **Token-budget sensitivity:** train a few anchor conditions at 50M and 100M tokens to separate undertraining from intrinsic difficulty and equalize alive fractions.
