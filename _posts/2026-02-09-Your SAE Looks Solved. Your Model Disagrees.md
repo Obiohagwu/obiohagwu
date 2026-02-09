@@ -1,8 +1,7 @@
-# Your SAE Looks Solved. Your Model Disagrees.
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
 ## A Budgeted Pythia Sweep Showing a Depth-Localized Proxy Gap (TopK SAEs)
 
-*mongoobi, Feb 2026*
 
 -----
 
