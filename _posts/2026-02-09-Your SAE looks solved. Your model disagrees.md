@@ -1,11 +1,3 @@
----
-layout: post
-title: "Your SAE Looks Solved. Your Model Disagrees."
-date: 2026-02-09
-kramdown:
-  math_engine: mathjax
----
-
 <script>
 MathJax = {
   tex: {
