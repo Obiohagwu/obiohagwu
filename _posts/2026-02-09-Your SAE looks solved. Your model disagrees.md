@@ -33,8 +33,8 @@ table {
 
 This is a research log with a small argument:
 
-1. If you're using SAEs as interpretability tools or safety monitors, **variance-explained ($$R^2$$) alone is not a reliable acceptance test**.
-2. In one common regime (mid-layer residual stream), $$R^2$$ can be **systematically inflated across scale at fixed sparsity**, due to a concrete mechanism (activation variance scaling) that does not affect direction-sensitive metrics like cosine similarity.
+1. If you're using SAEs as interpretability tools or safety monitors, **reconstruction fidelity alone is not a reliable acceptance test** — behavioral metrics like patched CE loss or ablation-normalized CE recovery should be primary.
+2. In one common regime (mid-layer residual stream), $$R^2$$ can be **systematically inflated across scale at fixed sparsity**, due to a concrete mechanism (activation variance scaling), while behavioral preservation gets worse.
 
 This is not a scaling-law fit and not evidence for a hard interpretability ceiling.
 
@@ -69,9 +69,34 @@ $$
 Notes (to be specific):
 
 - This is **not** ablation-normalized. It is **not** the same as "CE loss recovered" in Bricken et al. (2023) or SAE Lens's `ce_loss_score`, which normalize against a zero-ablation baseline. Do not compare magnitudes across papers without converting.
+- Because this metric normalizes by each model's own $$L_{orig}$$, cross-model comparisons can be affected by baseline-loss differences. I mainly use it here as a within-depth behavior preservation score and for sign patterns across $$k$$.
 - $$CE_{rec}=1$$ means perfect preservation ($$L_{recon}=L_{orig}$$).
 - $$CE_{rec}=0$$ means loss doubled ($$L_{recon}=2 L_{orig}$$).
 - It can be negative.
+
+**Per-token MSE (`mse_mean`).** Mean squared reconstruction error, averaged over model dimensions:
+
+$$
+\mathrm{MSE} := \mathbb{E}\left[\frac{1}{d_{model}}\lVert a - \hat{a} \rVert^2\right].
+$$
+
+**Cosine similarity (`cosine sim`).** Mean tokenwise cosine between original and reconstructed activation vectors:
+
+$$
+\cos(a,\hat{a}) := \frac{a^\top \hat{a}}{\lVert a\rVert\,\lVert \hat{a}\rVert}, \quad \text{report } \mathbb{E}[\cos(a,\hat{a})].
+$$
+
+**Relative error norm (`relative error norm`).** Mean tokenwise relative L2 error:
+
+$$
+\mathrm{RelErr} := \mathbb{E}\left[\frac{\lVert a - \hat{a}\rVert}{\lVert a\rVert + \varepsilon}\right], \quad \varepsilon=10^{-10}.
+$$
+
+**Alive fraction (`alive %`).** Fraction of SAE features that fire at least once on the eval set (for TopK, "fires" means encoder output $$\neq 0$$ on some token):
+
+$$
+\mathrm{alive} := \frac{\#\{i : \exists\,t \text{ s.t. } z_{t,i}\neq 0\}}{d_{sae}}.
+$$
 
 **Participation ratio (PR).** A geometry diagnostic for effective dimensionality, computed from eigenvalues $$\lambda_i$$ of the mean-centered covariance:
 
@@ -110,6 +135,7 @@ SAE class and budgets (both sweeps):
 - Expansion: $$d_{sae} = 32 \cdot d_{model}$$.
 - Training budget: 10,000,000 tokens per SAE (budgeted pilot).
 - Dataset: streaming `NeelNanda/pile-small-tokenized-2b`.
+- Eval: 200 held-out sequences of length 256 (≈51k tokens) from the same stream (separated by skipping ahead in the stream), with 95% CIs from a bootstrap over sequences (5,000 resamples).
 
 ---
 
@@ -124,7 +150,7 @@ Mid-layer, $$k=8$$ (Fast2):
 
 So the larger model looks "nearly solved" by variance explained, but patched loss is still much worse than baseline. A blunt translation of $$CE_{rec}=0.235$$ is: "patching reconstruction increases loss by about 76.5%."
 
-Stats caution: the CIs overlap at $$k=8$$, so do not treat this single row as decisive. The stronger evidence is the **consistent sign across the full $$k$$ sweep** below.
+Stats caution: the CIs overlap at $$k=8$$, so do not treat this single row as decisive. The stronger evidence is the **consistent sign across the full $$k$$ sweep** (in this 10M-token/SAE budgeted regime) below.
 
 ---
 
@@ -132,7 +158,7 @@ Stats caution: the CIs overlap at $$k=8$$, so do not treat this single row as de
 
 Across depths, the relationship between reconstruction and patched loss behaves differently.
 
-The most direct evidence is the mid-layer delta table. At every $$k$$ in the sweep, scaling from 70M to 410M **increases** $$R^2$$ while **decreasing** $$CE_{rec}$$:
+The most direct evidence is the mid-layer delta table. At every $$k$$ in this **10M-token/SAE budgeted sweep** (Fast2), scaling from 70M to 410M **increases** $$R^2$$ while **decreasing** $$CE_{rec}$$:
 
 | $$k$$ | $$\Delta R^2$$ (410M minus 70M) | $$\Delta CE_{rec}$$ (410M minus 70M) |
 |---:|---:|---:|
@@ -155,15 +181,15 @@ For reference, correlations between $$R^2$$ and $$CE_{rec}$$ from the full Fast2
 | mid | +0.474 | **-0.943** |
 | late | +0.702 | +0.976 (confounded) |
 
-**Important caveat:** the within-$$k$$ correlations are computed from $$n=2$$ (two models per $$k$$). A correlation from two points is always +/-1; the -0.943 is an average of such values across $$k$$. Treat this as sign information, not as a meaningful correlation coefficient. The delta table above is the real evidence.
+**Important caveat:** `corr within fixed $$k$$` is computed by subtracting the mean within each $$k$$ (i.e. "demeaning by $$k$$") and then correlating the residuals across all points in that depth ($$n=12$$ here = 2 models $$\times$$ 6 $$k$$ values). With only two model sizes, treat it mainly as a **sign diagnostic** for how scaling moves $$R^2$$ vs $$CE_{rec}$$ at fixed $$k$$, not as a stable statistic. The delta table above is the real evidence.
 
 ---
 
-## Reason? (might not necessarily be alien neuralese)
+## Why This Can Happen (no alien neuralese required)
 
-Two fairly boring reasons may be sufficient, and they make a specific prediction about which metrics are affected.
+The mid-layer sign flip (higher $$R^2$$ but worse $$CE_{rec}$$ at fixed $$k$$) is explainable with two mundane facts, plus one important confound.
 
-### 1) $$R^2$$ is normalized by activation variance, which changes across scale
+### 1) $$R^2$$ is variance-normalized, and variance scale changes with model size
 
 Mid-layer, $$k=8$$:
 
@@ -174,15 +200,15 @@ Mid-layer, $$k=8$$:
 
 Here SSE/token = mse_mean times d_model and SST/token is backed out from $$R^2$$ via $$R^2 = 1 - \mathrm{SSE}/\mathrm{SST}$$. The 410M mid layer has about 18x larger mean-centered variance scale (SST/token), so variance explained can look great even when absolute errors are not small.
 
-**This predicts that metrics not normalized by total variance should not show the inflation.** And they don't. At mid-layer $$k=8$$ (from the Fast3 three-model sweep):
+**Prediction:** metrics that do *not* divide by SST (e.g. cosine similarity, relative error norm, raw MSE) should not show the same "looks solved" inflation. And they don't. At mid-layer $$k=8$$ (Fast3 three-model check):
 
-| model | $$R^2$$ | cosine sim | NMSE | $$CE_{rec}$$ |
+| model | $$R^2$$ | cosine sim | relative error norm | $$CE_{rec}$$ |
 |---|---:|---:|---:|---:|
 | 70M | 0.810 | 0.856 | 0.506 | 0.372 |
 | 160M | 0.907 | 0.869 | 0.485 | 0.331 |
 | 410M | 0.961 | **0.809** | **0.574** | 0.269 |
 
-$$R^2$$ improves monotonically with scale. Cosine similarity and NMSE both show the 410M reconstruction is **worse**, consistent with $$CE_{rec}$$. The proxy gap is specific to variance-normalized metrics. If you're already using cosine or NMSE as your acceptance test, the $$R^2$$ inflation problem described here doesn't bite.
+$$R^2$$ improves monotonically with scale. Cosine similarity and relative error norm both show the 410M reconstruction is **worse**, consistent with $$CE_{rec}$$. The proxy gap here is specific to variance-normalized reconstruction metrics like $$R^2$$.
 
 ### 2) Loss sensitivity weights directions differently than covariance geometry
 
@@ -195,6 +221,10 @@ $$
 Reconstruction metrics weight directions by the activation distribution (covariance). Loss change weights directions by sensitivity $$g$$ (and, beyond first order, curvature). If sensitivity mass lives in comparatively low-variance directions, you can have high $$R^2$$ and still hurt loss.
 
 This is the "proxy gap" mechanism in one sentence: **MSE/variance and loss sensitivity are different measures on activation space.**
+
+### Confound: fixed SAE training budget undertrains larger SAEs
+
+In these sweeps, every SAE gets the same 10M-token training budget, while $$d_{sae} \propto d_{model}$$. Empirically, alive fraction often falls with model size (especially early/mid at low $$k$$) under this fixed budget. That is consistent with larger SAEs being relatively more undertrained, which can degrade behavior preservation and direction-sensitive reconstruction metrics even when $$R^2$$ looks strong. (See Limitations and the 100M-token check below.)
 
 ---
 
@@ -289,31 +319,44 @@ I am not claiming a formal reduction from SAE failure modes to epiplexity or tim
 Given that PR/anisotropy phenomena are known, any novel claim here is fairly narrow, but still we see:
 
 - A depth-localized, reproducible proxy gap where $$R^2$$ can improve with scale at fixed $$k$$ while patched loss gets worse — **strongest at low $$k$$, closing by $$k \ge 32$$**.
-- A concrete mechanism (SST inflation in anisotropic layers) that **predicts which metrics are affected**: $$R^2$$ yes, cosine/NMSE no.
+- A concrete mechanism (SST inflation in anisotropic layers) that **predicts which reconstruction metrics are affected**: $$R^2$$ yes, cosine/relative error norm no — but the deeper point is that reconstruction metrics in general can diverge from behavioral ones.
 - An operational "interpretability budget" object ($$k^*$$ for loss targets, plus rate proxies) that moves with depth and scale.
 - A concrete diagnostic (raw PR canyon) that flags where reconstruction-only evaluation is especially untrustworthy.
 
 If you already believe "reconstruction isn't behavior," you may find this useful as an attempt to make that belief operational, with a knob you can sweep and a failure mode you can reproduce.
 
-**Practical methodology tweak:** if you're evaluating SAE quality in mid-layer residual streams, use cosine similarity or NMSE rather than $$R^2$$, and always check a behavior-level metric like patched CE loss.
+**Practical methodology tweak:** if you're evaluating SAE quality, behavioral metrics like patched CE loss or ablation-normalized CE recovery (e.g. SAE Lens's `ce_loss_score`) should be the acceptance test — not reconstruction fidelity alone. Among reconstruction metrics, cosine similarity or relative error norm are more robust than $$R^2$$ in mid-layer residual streams, but they still measure reconstruction, not behavior.
 
 ---
 
-## Limitations 
+## Limitations (Things A Reviewer Should Hit Me For)
 
 - **Two model sizes in the main sweep** is not a scaling law fit. Fast3 adds a third mid-layer point but does not span depths.
 - **One SAE training seed per condition.** Bootstrap CIs reflect eval-batch variability, not training variability. All CIs overlap at every $$k$$.
-- **Fixed tool-training budget (10M tokens/SAE).** These are budgeted curves, not best-achievable. Critically, **alive fraction decreases with model size at every $$k$$** (e.g. at $$k=8$$: 15.2% for 70M, 12.9% for 160M, 11.9% for 410M), consistent with larger SAEs being relatively more undertrained under the same token budget. The observed $$CE_{rec}$$ gap may partly reflect this differential undertraining rather than intrinsic representation difficulty. Token-budget sensitivity checks (Next Step 2) would disambiguate.
+- **Fixed tool-training budget (10M tokens/SAE).** These are budgeted curves, not best-achievable. Alive fraction **often decreases with model size** in early/mid at low $$k$$ under this budget (with exceptions at higher $$k$$ / different depths), consistent with larger SAEs being relatively more undertrained under the same token budget. The observed $$CE_{rec}$$ gap may partly reflect differential undertraining rather than intrinsic representation difficulty. See the 100M-token check below.
 - **Late depth is confounded** (final block vs non-final), and late 70M runs show very low alive fractions consistent with undertraining.
 - **My $$CE_{rec}$$ definition is nonstandard.** It is not the ablation-normalized "CE loss recovered" used in Bricken et al. (2023), Gao et al. (2024), and SAE Lens. Do not compare magnitudes without converting. See Definitions section.
-- **The proxy gap is specific to $$R^2$$.** Cosine similarity and NMSE agree with $$CE_{rec}$$ that larger-model reconstructions are worse at fixed $$k$$. If you're already using direction-sensitive metrics, the problem described here may not affect your workflow.
+- **The $$R^2$$ inflation is specific to variance-normalized metrics.** Cosine similarity and relative error norm agree with $$CE_{rec}$$ that larger-model reconstructions are worse at fixed $$k$$. But more broadly, reconstruction metrics and behavioral metrics can diverge — behavioral acceptance tests (patched CE, ablation-normalized CE recovery) are the more direct measure of what matters.
+
+## Update: A 100M-Token Mid-Layer $$k=32$$ Check (Token-Budget Sensitivity)
+
+To probe the "fixed token budget" confound, I retrained the mid-layer $$k=32$$ TopK SAE for both models with a 10x larger training budget (100M tokens/SAE; SAE Lens v6.36.0, context size 256). Compared to the budgeted Fast2 runs:
+
+| model | train tokens | $$k$$ | $$CE_{rec}$$ | implied $$L_{recon}/L_{orig}$$ | alive % |
+|---|---:|---:|---:|---:|---:|
+| 70M (Fast2) | 10M | 32 | 0.731 | 1.269 | 61.7% |
+| 410M (Fast2) | 10M | 32 | 0.714 | 1.286 | 50.1% |
+| 70M (100M) | 100M | 32 | 0.898 | 1.102 | 94.7% |
+| 410M (100M) | 100M | 32 | 0.920 | 1.080 | 94.1% |
+
+This suggests the mid-layer $$k=32$$ "scale hurts $$CE_{rec}$$" effect in the 10M-token sweep is at least partly an undertraining artifact: alive fraction jumps, behavior preservation improves sharply, and the scale ordering flips. This does **not** test the low-$$k$$ proxy gap (where the original effect is strongest).
 
 ---
 
 ## Next Steps (High Leverage)
 
 1. **Bridge model at all depths:** add Pythia-160M at early/mid/late to get three-point depth-resolved comparisons.
-2. **Token-budget sensitivity:** train a few anchor conditions at 50M and 100M tokens to separate undertraining from intrinsic difficulty and equalize alive fractions.
+2. **Token-budget sensitivity:** extend the 100M-token check to low $$k$$ (8, 16) and to early/late depths (optionally include 50M as a midpoint) to separate undertraining from intrinsic difficulty and equalize alive fractions.
 3. **Deflated PR and anisotropy controls:** mean subtraction, top-eigen removal, to tighten the geometry story.
 4. **Sensitivity-weighted distortions:** Fisher/Hessian approximations to predict loss impact better than $$R^2$$.
 5. **Legibility evaluation:** SAEBench, MDL-style probing, to connect fidelity to human-usable features.
@@ -325,6 +368,8 @@ If you already believe "reconstruction isn't behavior," you may find this useful
 Fast2 results: `interpretability/workspace/results/k_scaling_early-mid-late_fast2/`
 
 Fast3 results: `interpretability/workspace/results/k_scaling_mid_fast3/`
+
+100M-token mid-layer $$k=32$$ check: `/Users/oboh/Downloads/experiment_results.tar.gz` (metrics in `results/*.json`).
 
 Regenerate the tables:
 
