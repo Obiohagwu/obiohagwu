@@ -1,1 +1,4 @@
 theme: minima
+
+kramdown:
+  math_engine: mathjax
