@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Your SAE Looks Solved. Your Model Disagrees."
+date: 2026-02-21
+kramdown:
+  math_engine: mathjax
+---
+
 <script>
 MathJax = {
   tex: {
@@ -27,16 +35,21 @@ table {
 
 ## A Budgeted Pythia Sweep Showing a Depth-Localized Proxy Gap (TopK SAEs)
 
-*mongoobi, Feb 2026*
+*mongoobi, Feb 2026 (updated Feb 21, 2026)*
 
 ---
 
 This is a research log with a small argument:
 
-1. If you're using SAEs as interpretability tools or safety monitors, **reconstruction fidelity alone is not a reliable acceptance test**; Behaviour metrics like patched CE loss or ablation-normalized CE recovery should be primary.
+1. If you're using SAEs as interpretability tools or safety monitors, **reconstruction fidelity alone is not a reliable acceptance test** — behavioral metrics like patched CE loss or ablation-normalized CE recovery should be primary.
 2. In one common regime (mid-layer residual stream), $$R^2$$ can be **systematically inflated across scale at fixed sparsity**, due to a concrete mechanism (activation variance scaling), while behavioral preservation gets worse.
 
-This is not a scaling-law fit and not evidence for a hard interpretability ceiling (yet).
+This is not a scaling-law fit and not evidence for a hard interpretability ceiling.
+
+**Update note (Feb 21):**
+
+- The CI-overlap statement is now explicitly scoped to the Fast3 mid-only sweep.
+- I added a new 50M-token in-tree anchor run for 70M mid-layer $$k=8$$.
 
 ---
 
@@ -95,7 +108,7 @@ $$
 **Alive fraction (`alive %`).** Fraction of SAE features that fire at least once on the eval set (for TopK, "fires" means encoder output $$\neq 0$$ on some token):
 
 $$
-\mathrm{alive} := \frac{\#\{i : \exists\,t \text{ s.t. } z_{t,i}\neq 0\}}{d_{sae}}.
+\mathrm{alive} := \frac{\{i : \exists\,t \text{ s.t. } z_{t,i}\neq 0\}}{d_{sae}}.
 $$
 
 **Participation ratio (PR).** A geometry diagnostic for effective dimensionality, computed from eigenvalues $$\lambda_i$$ of the mean-centered covariance:
@@ -253,7 +266,9 @@ Three observations:
 
 2. **At $$k \ge 32$$, monotonicity breaks for $$CE_{rec}$$.** At $$k=32$$: 410M ($$CE_{rec}=0.723$$) recovers more behavior than 160M (0.696). At $$k=64$$: 410M (0.814) slightly outperforms 160M (0.809). The proxy gap is a **low-$$k$$ phenomenon**.
 
-3. **All CIs overlap at every $$k$$.** At $$k=8$$ (the largest gap): 70M CI = [0.232, 0.478], 410M CI = [0.094, 0.404]. Per-batch variability is large — CE standard deviations range from 0.36 to 0.93 across conditions. Cohen's $$d$$ for the 70M-vs-410M difference at $$k=8$$ is approximately 0.14. The consistent sign across $$k$$ values is more informative than any individual comparison.
+3. **In Fast3 (mid-only), all pairwise CIs overlap at every $$k$$.** At $$k=8$$ (the largest gap): 70M CI = [0.232, 0.478], 410M CI = [0.094, 0.404]. Per-batch variability is large — CE standard deviations range from 0.36 to 0.93 across conditions. Cohen's $$d$$ for the 70M-vs-410M difference at $$k=8$$ is approximately 0.14. The consistent sign across $$k$$ values is more informative than any individual comparison.
+
+For clarity: this does **not** hold for Fast2 late depth, where 70M-vs-410M CE CIs are non-overlapping at $$k=32,64,128,256$$.
 
 ---
 
@@ -332,7 +347,7 @@ If you already believe "reconstruction isn't behavior," you may find this useful
 ## Limitations (Things A Reviewer Should Hit Me For)
 
 - **Two model sizes in the main sweep** is not a scaling law fit. Fast3 adds a third mid-layer point but does not span depths.
-- **One SAE training seed per condition.** Bootstrap CIs reflect eval-batch variability, not training variability. All CIs overlap at every $$k$$.
+- **One SAE training seed per condition.** Bootstrap CIs reflect eval-batch variability, not training variability. In Fast3 mid-only, all pairwise CIs overlap at every $$k$$; in Fast2 late depth, 70M-vs-410M CIs do not overlap at $$k=32,64,128,256$$.
 - **Fixed tool-training budget (10M tokens/SAE).** These are budgeted curves, not best-achievable. Alive fraction **often decreases with model size** in early/mid at low $$k$$ under this budget (with exceptions at higher $$k$$ / different depths), consistent with larger SAEs being relatively more undertrained under the same token budget. The observed $$CE_{rec}$$ gap may partly reflect differential undertraining rather than intrinsic representation difficulty. See the 100M-token check below.
 - **Late depth is confounded** (final block vs non-final), and late 70M runs show very low alive fractions consistent with undertraining.
 - **My $$CE_{rec}$$ definition is nonstandard.** It is not the ablation-normalized "CE loss recovered" used in Bricken et al. (2023), Gao et al. (2024), and SAE Lens. Do not compare magnitudes without converting. See Definitions section.
@@ -353,10 +368,27 @@ This suggests the mid-layer $$k=32$$ "scale hurts $$CE_{rec}$$" effect in the 10
 
 ---
 
+## Update: A 50M-Token Mid-Layer $$k=8$$ Anchor (In-Tree)
+
+To add a low-$$k$$ budget anchor in the same regime as the main headline, I trained a 70M mid-layer $$k=8$$ SAE for 50M tokens (in-tree artifact):
+
+`interpretability/interpretability/workspace/results/budget_check_m4_mid_k8_50M/run_pythia-70m_L3_mid_k8.json`
+
+Compared to the 10M Fast2 anchor:
+
+| model/depth/k | train tokens | $$CE_{rec}$$ [95% CI] | $$R^2$$ | alive % |
+|---|---:|---:|---:|---:|
+| 70M mid $$k=8$$ (Fast2) | 10M | 0.340 [0.169, 0.469] | 0.807 | 13.2% |
+| 70M mid $$k=8$$ (new) | 50M | 0.670 [0.629, 0.706] | 0.863 | 44.2% |
+
+This is a large improvement in both behavior preservation and feature utilization under higher training budget, which strengthens the undertraining caveat for low-$$k$$ settings.
+
+---
+
 ## Next Steps (High Leverage)
 
 1. **Bridge model at all depths:** add Pythia-160M at early/mid/late to get three-point depth-resolved comparisons.
-2. **Token-budget sensitivity:** extend the 100M-token check to low $$k$$ (8, 16) and to early/late depths (optionally include 50M as a midpoint) to separate undertraining from intrinsic difficulty and equalize alive fractions.
+2. **Token-budget sensitivity:** extend low-$$k$$ checks to include 410M (and 160M) at 50M/100M, and add early/late anchors, to separate undertraining from intrinsic difficulty and equalize alive fractions across scale.
 3. **Deflated PR and anisotropy controls:** mean subtraction, top-eigen removal, to tighten the geometry story.
 4. **Sensitivity-weighted distortions:** Fisher/Hessian approximations to predict loss impact better than $$R^2$$.
 5. **Legibility evaluation:** SAEBench, MDL-style probing, to connect fidelity to human-usable features.
@@ -368,6 +400,8 @@ This suggests the mid-layer $$k=32$$ "scale hurts $$CE_{rec}$$" effect in the 10
 Fast2 results: `interpretability/workspace/results/k_scaling_early-mid-late_fast2/`
 
 Fast3 results: `interpretability/workspace/results/k_scaling_mid_fast3/`
+
+50M-token mid-layer $$k=8$$ anchor (in-tree): `interpretability/interpretability/workspace/results/budget_check_m4_mid_k8_50M/`
 
 100M-token mid-layer $$k=32$$ check: `/Users/oboh/Downloads/experiment_results.tar.gz` (metrics in `results/*.json`).
 
