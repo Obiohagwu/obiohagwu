@@ -1,35 +1,5 @@
-script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-  }
-};
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-
-<style>
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 100%;
-  font-size: 0.9em;
-}
-.post-content {
-  overflow-x: hidden;
-}
-</style>
-
-
-# Seems to evolve beyond being just a mismatch to a fairly durable measurment problem
 
 *mongoobi, Feb 2026*
-
 ---
 
 Follow-up to [Part I](https://www.lesswrong.com/posts/your-sae-looks-solved-your-model-disagrees), where I trained TopK SAEs on Pythia-70M and 410M across layer depth and sparsity budget \(k\), and found a proxy gap: \(R^2\) and CE-patching could disagree about which SAE was “better.”
