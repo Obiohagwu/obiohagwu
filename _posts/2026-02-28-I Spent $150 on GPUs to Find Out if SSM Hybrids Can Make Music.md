@@ -1,5 +1,3 @@
-# I Spent $150 on GPUs to Find Out if SSMs Can Make Music
-
 Ok, so I don't really have a lab. Also no funding(quite the contrary, very broke haha), or research advisor (undergrad), or like any institutional affiliation. What I have though, is a runpod account, a soundcloud library full of high-tempo grungy groovy house music, and a question that nobody seemed to have answered yet.
 
 Namely; Can a hybrid Mamba-Attention model generate music as well as a Transformer?
