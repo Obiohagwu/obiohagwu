@@ -58,11 +58,11 @@ I did want to know if it could work for music generation though. A bit of a redu
 
 ---
 
-## Issue1: Mamba's Hidden State Is Locked Away
+## Mamba's Hidden state seems difficult to penetrate
 
 Here's the thing about Mamba that makes this non-trivial.
 
-The Memory Caching paper assumes you can grab the model's hidden state at any point during the forward pass. For linear attention that's fairly straightforward. The recurrent state is an explicit matrix S_t in R^{d_k x d_v} that you compute and can cache directly.
+The Memory Caching paper assumes you can grab the model's hidden state at any point during the forward pass. For linear attention that's fairly straightforward. The recurrent state is an explicit matrix $S_t \in \mathbb{R}^{d_k \times d_v}$ that you compute and can cache directly.
 
 Mamba doesn't work that way. Its fused CUDA kernel runs the entire selective scan inside GPU registers. The hidden state (a (d_inner, d_state) tensor per layer) is never materialized in accessible memory during training. You can't just reach in and grab it.
 
@@ -70,7 +70,7 @@ So I decided to not rewrite the kernel and just cache a proxy of the hidden stat
 
 ---
 
-## The implementations and the primary
+### The implementations and the primary
 
 I built two models to create a controlled comparison:
 
@@ -88,7 +88,7 @@ If MC works on linear attention but fails on Mamba, the proxy approach is the bo
 
 ---
 
-## Train Setup
+### Train Setup
 
 Both models were trained on music tokenized with **DAC** (Descript Audio Codec) at 44.1kHz -- 9 codebooks at ~86 tokens/second. The dataset is **FMA-Large**, a collection of 106,574 freely licensed tracks spanning a wide range of genres. Training ran on A100 80GB GPUs rented through RunPod.
 
@@ -96,7 +96,7 @@ The task is unconditional music generation (again, seriously gpu constrained eve
 
 ---
 
-## Experiment 1: The 48M Model (Proof of Life)
+### Experiment 1: The 48M Model (Proof of Life)
 
 Before going big, I ran a small-scale test to see if the MC mechanism could learn at all.
 
@@ -140,7 +140,7 @@ Was the audio actually good though? To be honest, with 48M parameters on 25k tra
 
 ---
 
-## Experiment 2: Scaling to 95M (Where Things Went Wrong)
+### Experiment 2: Scaling to 95M (Where Things Went Wrong)
 
 Encouraged by the 48M results, I scaled up. Bigger model, bigger data, improved codebase.
 
@@ -203,7 +203,7 @@ The underlying linear attention was doing all the work while the cache sat there
 
 ---
 
-## What to do?
+### What to do?
 
 The 48M model does seem to work though.
 
@@ -256,17 +256,17 @@ Some ideas will work on later.
 
 ---
 
-## Outlook
+### Outlook
 
 I started this project because I thought recurrent models needed better long-range memory for music generation, and MC seemed like an elegant way to provide it. The results so far are... humbling.
 
-The 48M experiment proved the concept can work. The 95M experiment proved that "can work" and "will work at scale" are different statements. The gate staying shut, the entropy staying flat, the grad norms spiking -- these are all symptoms of an optimization problem, not a fundamental architectural flaw. But optimization problems are real problems, and they don't solve themselves.
+The 48M experiment proved the concept can work, like a pretty good concept level proof. Although I messed up with trying to scale prematurely. The gate staying shut, the entropy staying flat, the grad norms spiking are all symptoms of general issues in my models optimization landscape. So the whitepill there is it might not necessarily be anything wrong with my architecture "design".
 
-What I have right now is a mechanism that learned selective memory retrieval on a small model, and a larger model where that same mechanism refused to engage because of dumb mistakes on my part.
+What I have right now is a mechanism that learned selective memory retrieval on a small model, and a larger model where that same mechanism refused to engage because of mostly dumb mistakes on my part.
 
 
 ---
 
-*All code is available in the [mc-mamba repository](https://github.com/obiohagwu/mc-mamba). Training logs for all runs are included in `pod_runs/`.*
+*All code is available in the [mc-mamba repository](https://github.com/Obiohagwu/mc-la-mamba). Training logs for all runs are included in `pod_runs/`.*
 
 *If you've dealt with similar cold-start problems when adding auxiliary mechanisms to neural networks, I'd genuinely love to hear how you solved it. Sometimes the difference between "doesn't work" and "works beautifully" is one initialization trick.*
