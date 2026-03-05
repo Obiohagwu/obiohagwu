@@ -1,3 +1,30 @@
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+<style>
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  font-size: 0.9em;
+}
+.post-content {
+  overflow-x: hidden;
+}
+</style>
+
 So I've been attending house type like dance events more frequently. Not to make this too romantic, but i really enjoy music, and dancing, and like, house really is the perfect manifestation of that haha.
 
 Anyway, I decided to try a janky re-implementation of this new memory-caching fix over rnn or just linear attention type operations. 
@@ -204,19 +231,19 @@ To be clear this was more of a learning thourgh experiment thing, and i'd defini
 
 ## Learnings?
 
-### 1. The mechanism works (when it works)
+**1. The mechanism works (when it works)**
 
 The 48M experiment is proof that GRM-based memory caching *can* learn selective retrieval over cached segment states in a music generation context. The entropy dropping from 1.26 to 0.22 is not nothing.  The model seemingly learns to look at specific past segments when generating new tokens. That's the whole promise of MC.
 
-### 2. Initialization and learning rate matter more than I expected
+**2. Initialization and learning rate matter more than I expected**
 
 The gate bias at -2.0 combined with LR 3e-4 seems to be a bad combination. The MC paper doesn't discuss initialization sensitivity because they're working with linear attention models where the state matrices are already part of the standard forward pass. When you're bolting MC onto an architecture as an *addition*, the optimization dynamics change. The MC pathway needs to be initialized assertively enough to receive gradient signal, but not so aggressively that it destabilizes the base model.
 
-### 3. The "proxy vs. faithful" comparison is still pending
+**3. The "proxy vs. faithful" comparison is still pending**
 
 I haven't actually trained MC-Mamba (the output-activation proxy version) yet. The experiments above are all MC-Linear-Attention. The original question I did have was can you cache Mamba's *output activations* and get useful retrieval?. I think thats remains a bit open. The 48M result suggests the GRM mechanism itself works for music, so the next step is testing whether the proxy representation (boundary output vectors) is informative enough to retrieve from.
 
-### 4. Scale-up isn't free
+**4. Scale-up isn't free**
 
 Also learned the hard way that a mechanism that works at small scale can fail at large scale for reasons that have nothing to do with the mechanism's fundamental validity. Initialization, learning rate schedules, interaction with other training hyperparameters etc etc can all obviously change the outcome. The 48M model's success didn't predict the 95M model's failure.
 
@@ -229,7 +256,7 @@ Some ideas will work on later.
 
 ---
 
-## The Bigger Picture
+## Outlook
 
 I started this project because I thought recurrent models needed better long-range memory for music generation, and MC seemed like an elegant way to provide it. The results so far are... humbling.
 
