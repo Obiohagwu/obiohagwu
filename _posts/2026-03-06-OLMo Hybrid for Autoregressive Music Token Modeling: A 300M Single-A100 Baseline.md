@@ -111,7 +111,7 @@ Initial training configuration:
 
 For a **40GB A100**, the repository should also now expose `--grad_accum_steps`, which makes it easier to shift toward smaller microbatches without changing the effective batch size too aggressively.
 
-## Why this is a useful baseline and the ACTUAL crux
+### Why this is a useful baseline and the ACTUAL crux
 
 This model is meant to answer a fairly narrow but important question:
 
@@ -125,7 +125,7 @@ Second, it is practical. A **294M model that trains on one A100** is much easier
 
 Third, it is easy to ablate. The **3:1 schedule**, **RoPE setup**, **GQA configuration**, and **feed-forward width** can all be varied cleanly in follow-up experiments.
 
-## Evaluation plan
+### Evaluation plan
 
 The evaluation setup right now below.
 
@@ -144,7 +144,7 @@ The comparison set should include:
 * earlier hybrid models already in the repo
 * memory-caching variants where relevant
 
-## Limitations
+### Limitations
 
 This is more so an implementation and experiment-design note, not a completed empirical claim. No training results are reported here.
 
@@ -156,7 +156,7 @@ Second, FlashAttention acceleration only applies to the **attention blocks**. Th
 
 If this baseline performs well, the natural next step is to move the recurrent side closer to the public runtime stack.
 
-## Thoughts?
+### Thoughts?
 
 The repository now contains an OLMo-hybrid-style music model that is large enough to be meaningful, but still small enough to train on a single A100. That makes it a strong next baseline.
 
