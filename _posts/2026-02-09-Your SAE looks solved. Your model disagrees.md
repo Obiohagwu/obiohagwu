@@ -25,10 +25,6 @@ table {
 }
 </style>
 
-## A Budgeted Pythia Sweep Showing a Depth-Localized Proxy Gap (TopK SAEs)
-
-*mongoobi, Feb 2026 (updated Feb 21, 2026)*
-
 ---
 
 This is a research log with a small argument:
