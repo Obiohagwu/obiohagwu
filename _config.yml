@@ -1,4 +1,6 @@
 theme: minima
-
+baseurl: "/obiohagwu"
+url: "https://obiohagwu.github.io"
+ 
 kramdown:
   math_engine: mathjax

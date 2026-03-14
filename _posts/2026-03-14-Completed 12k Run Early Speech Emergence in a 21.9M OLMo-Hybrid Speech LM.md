@@ -17,9 +17,9 @@ Final result:
 
 Useful links:
 
-- [full technical report (PDF)](/images/olmo-hybrid-speech/final_report.pdf)
+- [full technical report (PDF)]({{ '/images/olmo-hybrid-speech/final_report.pdf' | relative_url }})
 - [code](https://github.com/Obiohagwu/olmo-hybrid-speech)
-- [full eval history CSV](/images/olmo-hybrid-speech/a100_eval_history_full.csv)
+- [full eval history CSV]({{ '/images/olmo-hybrid-speech/a100_eval_history_full.csv' | relative_url }})
 
 ---
 
@@ -74,25 +74,25 @@ What I cared about most was whether this architecture could stay in a clearly sp
 
 Earlier pilot checkpoint: `step 1800`
 
-<audio controls preload="none" src="/images/olmo-hybrid-speech/step1800_sample1.wav"></audio>
+<audio controls preload="none" src="{{ '/images/olmo-hybrid-speech/step1800_sample1.wav' | relative_url }}"></audio>
 
 Mid-run checkpoint: `step 7400`
 
-<audio controls preload="none" src="/images/olmo-hybrid-speech/step7400_sample0.wav"></audio>
+<audio controls preload="none" src="{{ '/images/olmo-hybrid-speech/step7400_sample0.wav' | relative_url }}"></audio>
 
 Final-best checkpoint: `step 12000`
 
 Sample 1
 
-<audio controls preload="none" src="/images/olmo-hybrid-speech/step12000_sample0.wav"></audio>
+<audio controls preload="none" src="{{ '/images/olmo-hybrid-speech/step12000_sample0.wav' | relative_url }}"></audio>
 
 Sample 2
 
-<audio controls preload="none" src="/images/olmo-hybrid-speech/step12000_sample1.wav"></audio>
+<audio controls preload="none" src="{{ '/images/olmo-hybrid-speech/step12000_sample1.wav' | relative_url }}"></audio>
 
 Sample 3
 
-<audio controls preload="none" src="/images/olmo-hybrid-speech/step12000_sample2.wav"></audio>
+<audio controls preload="none" src="{{ '/images/olmo-hybrid-speech/step12000_sample2.wav' | relative_url }}"></audio>
 
 These are still babbly and not semantically grounded. But they are much less in the "barely holding together" regime than the early pilot, and that matters.
 
