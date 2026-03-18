@@ -119,7 +119,7 @@ This is still an architecture viability result. But it is a real one.
 
 This is enough to justify moving into text conditioning.
 
-The question is no longer "can this thing speak at all?" The next question is whether I can inject text cleanly enough to get controllable reading rather than only speech-like babble.
+The next question is whether I can inject text cleanly enough to get controllable reading rather than only speech-like babble.
 
 So the plan from here is:
 
