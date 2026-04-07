@@ -1,3 +1,9 @@
+---
+title: "Your SAE looks solved. Your model disagrees"
+date: 2026-02-09
+kind: research
+---
+
 <script>
 MathJax = {
   tex: {

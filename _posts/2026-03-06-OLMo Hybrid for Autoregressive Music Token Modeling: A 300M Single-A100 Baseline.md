@@ -1,3 +1,9 @@
+---
+title: "OLMo Hybrid for Autoregressive Music Token Modeling: A 300M Single-A100 Baseline"
+date: 2026-03-06
+kind: research
+---
+
 Something really cool happened yesterday.
 
 It's really convenient that while i was working on alternate architecures for music generation that are subquadratic, olmo hybrid just gets dropped.

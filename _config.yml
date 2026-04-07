@@ -1,6 +1,78 @@
+title: obiohagwu
+description: Independent research notes on interpretability, representation geometry, and sequence and speech modeling.
 theme: minima
 baseurl: "/obiohagwu"
 url: "https://obiohagwu.github.io"
- 
+
+header_pages:
+  - best-work.md
+  - diary.md
+  - archive.md
+
 kramdown:
   math_engine: mathjax
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      kind: essay
+  - scope:
+      path: "_posts/2022-12-28-Notes-on-speech.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2023-03-12-Review-on-audio.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2023-05-25-Building-out-mini-compute-cluster.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-02-09-Your SAE looks solved. Your model disagrees.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-02-22-Transport Geometry as a Testable Hypothesis?.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-03-04-Janky memory cache over mamba hybrid for music?.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-03-06-OLMo Hybrid for Autoregressive Music Token Modeling: A 300M Single-A100 Baseline.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-03-10-A 21.9M hybrid recurrent attention to learn speech on 1.8k steps.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2026-03-14-Completed 12k Run Early Speech Emergence in a 21.9M OLMo-Hybrid Speech LM.md"
+      type: posts
+    values:
+      kind: research
+  - scope:
+      path: "_posts/2025-12-31-Hmm.md"
+      type: posts
+    values:
+      kind: diary
+      title: Hmm
+  - scope:
+      path: "_posts/2026-02-01-Weird.md"
+      type: posts
+    values:
+      kind: diary
+      title: Weird

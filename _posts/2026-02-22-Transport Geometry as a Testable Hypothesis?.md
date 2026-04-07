@@ -1,3 +1,9 @@
+---
+title: "Transport Geometry as a Testable Hypothesis?"
+date: 2026-02-22
+kind: research
+---
+
 <script>
 MathJax = {
   tex: {

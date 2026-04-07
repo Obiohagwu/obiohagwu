@@ -1,3 +1,9 @@
+---
+title: "Janky memory cache over mamba hybrid for music?"
+date: 2026-03-04
+kind: research
+---
+
 <script>
 MathJax = {
   tex: {
