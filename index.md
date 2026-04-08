@@ -4,19 +4,19 @@ title: obi ohagwu
 permalink: /
 ---
 
-# Obi Ohagwu
+# What?
 
-I work on mechanistic interpretability, representation geometry, and sequence and speech modeling. This site is a research log for experiments, reports, technical notes, and a smaller amount of personal writing.
+I work on things I find interesting. more recently spanning interpretability, representation geometry, and sequence and speech modeling. This site is a research log for experiments, reports, technical notes, and a smaller amount of personal writing.
 
 The homepage foregrounds research work. Diary entries live on a separate page. If you want the shortest path into the site, start with [Best Work]({{ '/best-work/' | relative_url }}). The [Archive]({{ '/archive/' | relative_url }}) includes everything.
 
-## Best Work
+## Lights
 
 - [Your SAE looks solved. Your model disagrees]({{ '/2026/02/09/Your-SAE-looks-solved.-Your-model-disagrees.html' | relative_url }})  
   A concrete interpretability result about why reconstruction metrics can overstate behavioral faithfulness.
 - [Transport Geometry as a Testable Hypothesis?]({{ '/2026/02/22/Transport-Geometry-as-a-Testable-Hypothesis.html' | relative_url }})  
   A follow-up that tightens the claim, reports what disappeared with more training, and lays out the next diagnostic step.
-- [Robust but Not Unique: Topological Signal in Learned Odor Embeddings]({{ '/2026/04/08/Robust-but-Not-Unique-Topological-Signal-in-Learned-Odor-Embeddings.html' | relative_url }})  
+- [Topological Signal in Learned Odor Embeddings]({{ '/2026/04/08/Robust-but-Not-Unique-Topological-Signal-in-Learned-Odor-Embeddings.html' | relative_url }})  
   A representation-audit paper on POM/OpenPOM, persistent homology, chemical baselines, and why compression mismatch matters for interpretation.
 - [odor-topology paper (PDF)]({{ '/images/odor-topology/robust-but-not-unique-odor-topology.pdf' | relative_url }})  
   The compact artifact version of the odor-topology result.
