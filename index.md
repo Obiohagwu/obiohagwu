@@ -16,6 +16,10 @@ The homepage foregrounds research work. Diary entries live on a separate page. I
   A concrete interpretability result about why reconstruction metrics can overstate behavioral faithfulness.
 - [Transport Geometry as a Testable Hypothesis?]({{ '/2026/02/22/Transport-Geometry-as-a-Testable-Hypothesis.html' | relative_url }})  
   A follow-up that tightens the claim, reports what disappeared with more training, and lays out the next diagnostic step.
+- [Robust but Not Unique: Topological Signal in Learned Odor Embeddings]({{ '/2026/04/08/Robust-but-Not-Unique-Topological-Signal-in-Learned-Odor-Embeddings.html' | relative_url }})  
+  A representation-audit paper on POM/OpenPOM, persistent homology, chemical baselines, and why compression mismatch matters for interpretation.
+- [odor-topology paper (PDF)]({{ '/images/odor-topology/robust-but-not-unique-odor-topology.pdf' | relative_url }})  
+  The compact artifact version of the odor-topology result.
 - [Completed 12k Run: Early Speech Emergence in a 21.9M OLMo-Hybrid Speech LM]({{ '/2026/03/14/Completed-12k-Run-Early-Speech-Emergence-in-a-21.9M-OLMo-Hybrid-Speech-LM.html' | relative_url }})  
   A speech-modeling report with metrics, samples, and a narrow viability claim.
 - [OLMo-hybrid speech technical report (PDF)]({{ '/images/olmo-hybrid-speech/final_report.pdf' | relative_url }})  

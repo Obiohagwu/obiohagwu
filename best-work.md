@@ -16,6 +16,14 @@ This is the shortest path into the site.
 - [Transport Geometry as a Testable Hypothesis?]({{ '/2026/02/22/Transport-Geometry-as-a-Testable-Hypothesis.html' | relative_url }})  
   The follow-up post: what survived, what disappeared with more training, and what geometry-aware proxy I think is worth testing next.
 
+## Representation Geometry / Computational Olfaction
+
+- [Robust but Not Unique: Topological Signal in Learned Odor Embeddings]({{ '/2026/04/08/Robust-but-Not-Unique-Topological-Signal-in-Learned-Odor-Embeddings.html' | relative_url }})  
+  A technical post on the odor-topology project: robust `H1` in OpenPOM, strong chemical baselines, and why the compression mismatch is part of the real story.
+
+- [odor-topology paper (PDF)]({{ '/images/odor-topology/robust-but-not-unique-odor-topology.pdf' | relative_url }})  
+  The current compact paper artifact.
+
 ## Speech Modeling
 
 - [Completed 12k Run: Early Speech Emergence in a 21.9M OLMo-Hybrid Speech LM]({{ '/2026/03/14/Completed-12k-Run-Early-Speech-Emergence-in-a-21.9M-OLMo-Hybrid-Speech-LM.html' | relative_url }})  
