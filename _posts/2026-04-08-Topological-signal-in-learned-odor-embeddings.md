@@ -1,13 +1,7 @@
----
-title: "Robust but Not Unique: Topological Signal in Learned Odor Embeddings"
-date: 2026-04-08
-kind: research
----
 
-This is the first public writeup from the odor-topology project.
+Got nerdsniped recently.
 
-The paper asks a deliberately narrow question:
-
+Q:
 > if a learned odor embedding appears to show nontrivial topology, does that signal survive metric choice, subsampling, null models, checkpoint variation, and comparison to ordinary chemical baselines?
 
 That is a much more defensible question than "what is the topology of odor space?"
@@ -64,43 +58,36 @@ The interesting part is the compression mismatch.
 
 POM here is a `256`-dimensional dense learned embedding. The strongest chemical baselines are `2048`-bit sparse combinatorial encodings. Those are not the same kind of objects.
 
-That means the right interpretation is not:
-
-- "fingerprints win, therefore learned odor embeddings are topologically uninteresting"
-
-It is closer to:
-
+So we have:
 - sparse fingerprints preserve lots of raw combinatorial chemical detail, which can naturally produce strong persistent structure
 - POM is much more compressed, so the fact that it still retains robust `H1` at all is nontrivial
 - but that still does **not** prove that POM preserves *better* odor-relevant structure
 
 That distinction is basically the spine of the paper now.
 
-If I push this line further, the next version should compare POM against **matched-bottleneck chemical baselines** rather than only against much larger sparse spaces. PCA-compressed fingerprints, random projections, or autoencoder-compressed baselines would make the fairness question much cleaner.
+If I push this line further, the next version would likely compare POM against **matched-bottleneck chemical baselines** rather than only against much larger sparse spaces. PCA-compressed fingerprints, random projections, or autoencoder-compressed baselines would make the fairness question much cleaner.
 
 ---
 
-### Utility: Not Just Descriptive Topology
+### Utility: Beyond descriptive topology?
 
-I also did a first utility pass, because I did not want the whole project to stop at "look, persistence diagrams."
+I also did a fairly narrow first utility pass, because I did not want the whole project to stop at "look, persistence diagrams."
 
 The utility question was:
 
 > do topology-derived local features explain neighborhood-level odor-label structure better than local geometry alone?
 
-The answer was cautiously yes, but only in a limited and target-dependent way.
+The answer was cautiously yes, mostly in a limited and target-dependent way.
 
-Local topology sometimes improved prediction of neighborhood ambiguity / entropy style targets beyond local geometry. But again, the gains were not uniquely favorable to POM. Some ordinary chemistry baselines also benefited.
+Local topology sometimes improved prediction of neighborhood ambiguity / entropy style targets beyond local geometry. But again, the gains were not uniquely favorable to POM. Some ordinary chemistry baselines seemed to also benefit.
 
-So the utility result is real, but modest:
+So the utility result is quite modest:
 
 - topology can add explanatory value
-- the gains are conditional
-- the gains are not currently enough to claim that topology is a uniquely powerful odor-modeling advantage
-
+- the gains are conditional and not currently enough to claim that topology is a uniquely powerful odor-modeling advantage
 ---
 
-### What I Am Not Claiming
+### Clear ?'s
 
 I want to be very explicit about the non-claims here.
 
@@ -117,15 +104,10 @@ That is still worth something. In a lot of modern embedding work, people jump fr
 
 ---
 
-### Why I Think It Was Worth Posting
-
+### Why?
 I think there is real value in results that sharpen what a representation does and does not justify.
 
-The cleanest positive claim from this line is not:
-
-- "POM has superior topology"
-
-It is:
+The cleanest positive claim from this line is mostly:
 
 - "compressed learned odor spaces can preserve real topological structure, but robust topology is not automatically a learned-embedding-only phenomenon"
 
@@ -133,4 +115,4 @@ That is a stricter and less glamorous claim, but it is the one I can currently d
 
 If you want the compact artifact version, the paper is here again:
 
-- [robust but not unique: topological signal in learned odor embeddings (PDF)]({{ '/images/odor-topology/robust-but-not-unique-odor-topology.pdf' | relative_url }})
+- [Topological signal in learned odor embeddings (PDF)]({{ '/images/odor-topology/robust-but-not-unique-odor-topology.pdf' | relative_url }})
