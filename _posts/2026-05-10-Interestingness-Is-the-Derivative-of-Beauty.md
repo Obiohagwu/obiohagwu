@@ -4,6 +4,16 @@ date: 2026-05-10
 kind: essay
 ---
 
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
 Schmidhuber has a style I really like: take a thing people usually protect as
 vibes, then ask what quantity would have to change inside an observer for the
 vibe to happen.
@@ -16,7 +26,7 @@ interestingness, jokes, aesthetic reward, scientific delight - are closer to
 
 Beauty is a state. Interestingness is a slope.
 
-If some data stream \(x\) takes \(C_t(x)\) bits for my current internal
+If some data stream $x$ takes $C_t(x)$ bits for my current internal
 compressor to encode, then one simple proxy for subjective beauty is:
 
 $$
@@ -128,7 +138,7 @@ $$
 r_{\text{int}} = C_{\text{old}}(h) - C_{\text{new}}(h)
 $$
 
-where \(h\) is the agent's history. If the new compressor saves bits on the
+where $h$ is the agent's history. If the new compressor saves bits on the
 same history, the agent has made progress. This makes the reward about learning,
 not about accidentally walking into an easier room.
 
